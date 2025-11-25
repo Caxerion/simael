@@ -52,7 +52,7 @@ class SquadController extends Controller
         // Update student menjadi anggota squad
         $student->update(['squad_id' => $squad->id]);
 
-        return redirect()->route('squads.show', $squad->id)->with('success', 'Squad berhasil dibuat!');
+        return redirect()->route('dashboard')->with('success', 'Squad berhasil dibuat!');
     }
 
     /**
