@@ -17,3 +17,7 @@ Route::controller(LoginRegisterController::class)->group(function() {
     Route::post('/logout', 'logout')->name('logout');
 });
 Route::resource('students', StudentController::class);
+
+use App\Http\Controllers\SquadController;
+
+Route::resource('squads', SquadController::class);
