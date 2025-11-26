@@ -77,7 +77,6 @@
                     <label class="text-slate-900 dark:text-white text-sm mb-2 block">Password</label>
 
                     <div class="relative">
-
                         <input id="password" name="password" type="password"
                                class="bg-gray-100 dark:bg-gray-800 w-full text-slate-900 dark:text-white text-sm
                                       px-4 py-3 pr-12 focus:bg-transparent border border-gray-100

@@ -54,7 +54,7 @@
                     @endif
                 </div>
 
-                {{-- PASSWORD INPUT (DIGABUNGKAN VERSI KAMU + ORANG LAIN) --}}
+                {{-- PASSWORD INPUT (VERSI FINAL DIGABUNG) --}}
                 <div>
                     <label class="text-slate-900 text-sm mb-2 block dark:text-white">Password</label>
 
