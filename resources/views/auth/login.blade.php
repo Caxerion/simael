@@ -26,12 +26,12 @@
         <form class="lg:max-w-md w-full" action="{{ route('login') }}" method="post">
             @csrf
 
-          <h1 class="text-slate-900 text-3xl font-semibold mb-8">Login Murid</h1>
+          <h1 class="text-slate-900 text-3xl font-semibold mb-8 dark:text-blue-300">Login Murid</h1>
           <div class="space-y-6">
             <div>
-              <label class="text-slate-900 text-sm mb-2 block">NISN</label>
+              <label class="text-slate-900 text-sm mb-2 block dark:text-white">NISN</label>
                 @if ($errors->any())
-                    <input name="nisn" type="number" class="bg-gray-100 w-full text-slate-900 text-sm px-4 py-3 focus:bg-transparent border  border-red-500 focus:border-black outline-none transition-all" placeholder=" Masukkan NISN"  value="{{ old('nisn') }}" required/>
+                    <input name="nisn" type="number" class="bg-gray-100 dark:bg-gray-800 dark:border-gray-600 w-full text-slate-900 dark:text-white text-sm px-4 py-3 focus:bg-transparent border  border-red-500 focus:border-black dark:focus:border-blue-400 outline-none transition-all dark:placeholder-gray-400" placeholder=" Masukkan NISN"  value="{{ old('nisn') }}" required/>
                     <div class="alert alert-danger">
                         @foreach ($errors->all() as $error)
                             <p class="text-sm mt-1 text-red-500">{{ $error }}</p>
@@ -40,11 +40,11 @@
                 @else
                     @if (session()->has('failed'))
 
-                        <input name="nisn" type="number" class="bg-gray-100 w-full text-slate-900 text-sm px-4 py-3 focus:bg-transparent border  border-red-500 focus:border-black outline-none transition-all" placeholder=" Masukkan NISN"  value="{{ old('nisn') }}" required/>
+                        <input name="nisn" type="number" class="bg-gray-100 dark:bg-gray-800 dark:border-gray-600 w-full text-slate-900 dark:text-white text-sm px-4 py-3 focus:bg-transparent border  border-red-500 focus:border-black dark:focus:border-blue-400 outline-none transition-all dark:placeholder-gray-400" placeholder=" Masukkan NISN"  value="{{ old('nisn') }}" required/>
                         <p class="text-sm mt-1 text-red-500">{{ session('failed') }}</p>
 
                     @else
-                        <input name="nisn" type="number" class="bg-gray-100 w-full text-slate-900 text-sm px-4 py-3 focus:bg-transparent border  border-grey-100 focus:border-black outline-none transition-all" placeholder=" Masukkan NISN"  value="{{ old('nisn') }}" required/>
+                        <input name="nisn" type="number" class="bg-gray-100 dark:bg-gray-800 dark:border-gray-600 w-full text-slate-900 dark:text-white text-sm px-4 py-3 focus:bg-transparent border  border-grey-100 focus:border-black dark:focus:border-blue-400 outline-none transition-all dark:placeholder-gray-400" placeholder=" Masukkan NISN"  value="{{ old('nisn') }}" required/>
                         @if (session()->has('success'))
                         <p class="text-sm mt-1 text-green-400">{{ session('success') }}</p>
                         @endif
@@ -52,12 +52,12 @@
                 @endif
             </div>
             <div>
-              <label class="text-slate-900 text-sm mb-2 block">Password</label>
-              <input name="password" type="password" class="bg-gray-100 w-full text-slate-900 text-sm px-4 py-3 focus:bg-transparent border border-gray-100 focus:border-black outline-none transition-all" placeholder="Masukkan password" required/>
+              <label class="text-slate-900 text-sm mb-2 block dark:text-white">Password</label>
+              <input name="password" type="password" class="bg-gray-100 dark:bg-gray-800 dark:border-gray-600 w-full text-slate-900 dark:text-white text-sm px-4 py-3 focus:bg-transparent border border-gray-100 focus:border-black dark:focus:border-blue-400 outline-none transition-all dark:placeholder-gray-400" placeholder="Masukkan password" required/>
             </div>
             <div class="flex items-center">
-              <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 shrink-0 border-gray-300 rounded" required />
-              <label for="remember-me" class="ml-3 block text-sm text-slate-600">
+              <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 shrink-0 border-gray-300 dark:border-gray-600 rounded" required />
+              <label for="remember-me" class="ml-3 block text-sm text-slate-600 dark:text-gray-300">
                 Remember me 
               </label>
             </div>
@@ -68,7 +68,7 @@
               Login
             </button>
           </div>
-          <p class="text-sm text-slate-600 mt-6">Belum punya akun? <a href="{{ route('registerPage') }}" class="text-blue-600 font-semibold hover:underline ml-1">Buat disini</a></p>
+          <p class="text-sm text-slate-600 mt-6 dark:text-gray-300">Belum punya akun? <a href="{{ route('registerPage') }}" class="text-blue-600 font-semibold hover:underline ml-1 dark:text-blue-400">Buat disini</a></p>
         </form>
 
         <div class="h-full">

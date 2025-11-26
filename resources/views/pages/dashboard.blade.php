@@ -18,23 +18,29 @@
 <div class="min-h-screen bg-linear-to-br from-background via-background to-secondary/20">
         <main class="container mx-auto px-4 py-8 max-w-6xl">
         <div class="mb-8">
-            <h2 class="text-3xl font-bold text-foreground mb-2">Halo, {{ $student->name }} 👋</h2>
+            {{-- Halo greeting --}}
+            {{-- Dark Mode Greeting Text --}}
+            <h2 class="text-3xl font-bold text-foreground dark:text-white mb-2">Halo, {{ $student->name }} 👋</h2>
         @if (!$squad)
-            <p class="text-muted-foreground">Kamu belum memiliki squad PKL</p>
+            {{-- No squad message --}}
+            {{-- Dark Mode No Squad Message --}}
+            <p class="text-muted-foreground dark:text-gray-300">Kamu belum memiliki squad PKL</p>
         </div>
         <div class="rounded-xl text-card-foreground shadow p-8 mb-8 card-shadow border-0 bg-muted/50">
             <div class="text-center py-8">
                 <div class="w-20 h-20 rounded-full bg-muted flex items-center justify-center mx-auto mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users w-10 h-10 text-muted-foreground" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users w-10 h-10 text-muted-foreground dark:text-white" aria-hidden="true">
                         <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
                         <path d="M16 3.128a4 4 0 0 1 0 7.744"></path>
                         <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
                         <circle cx="9" cy="7" r="4"></circle>
                     </svg>
                 </div>
-                <h3 class="text-xl font-semibold text-muted-foreground mb-6">Kamu belum memiliki squad PKL</h3>
+                {{-- No squad message --}}
+                {{-- Dark Mode No Squad Heading --}}
+                <h3 class="text-xl font-semibold text-muted-foreground dark:text-gray-200 mb-6">Kamu belum memiliki squad PKL</h3>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button id="openModalCreateSquad" class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary-foreground shadow hover:bg-blue-500 hover:text-white cursor-pointer h-10 rounded-md px-8 bg-gradient-primary hover:opacity-90 shadow-elegant">
+                    <button id="openModalCreateSquad" class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transform transition-transform duration-200 ease-out hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary-foreground dark:text-white shadow hover:bg-blue-500 hover:text-white cursor-pointer h-10 rounded-md px-8 bg-gradient-primary hover:opacity-90 shadow-elegant">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-plus w-5 h-5 mr-2" aria-hidden="true">
                             <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
                             <circle cx="9" cy="7" r="4"></circle>
@@ -43,7 +49,7 @@
                         </svg>
                         Buat Squad
                     </button>
-                    <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border-input shadow-sm hover:bg-accent hover:bg-black hover:text-white h-10 rounded-md px-8 border-2">
+                    <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border-input shadow-sm hover:bg-accent hover:bg-black hover:text-white h-10 rounded-md px-8 border-2 dark:border-gray-600 dark:text-white">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock w-5 h-5 mr-2" aria-hidden="true">
                             <circle cx="12" cy="12" r="10"></circle>
                             <polyline points="12 6 12 12 16 14"></polyline>
@@ -54,7 +60,7 @@
             </div>
         </div>
         @else
-                        <p class="text-muted-foreground">Kamu adalah bagian dari {{ $squad->name }}</p>
+                        <p class="text-muted-foreground dark:text-white">Kamu adalah bagian dari {{ $squad->name }}</p>
                     </div>
                     <div class="rounded-xl text-card-foreground shadow p-8 mb-8 card-shadow border-0 bg-linear-to-br from-primary/5 to-primary/10">
                         <div>
@@ -76,32 +82,32 @@
                                         </div>
                                         @if ($squad->leader->id == $student->id)
                                         <div id="openModalEditStatus" class="cursor-pointer opacity-50 hover:opacity-100 transition-all">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 dark:text-white">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
                                             </svg>
                                         </div>
                                         @endif
                                     </div>
-                                    <h3 class="text-2xl font-bold text-foreground mb-2">{{ $squad->name }}</h3>
-                                    <p class="text-muted-foreground">Leader : {{ $squad->leader->name }}</p>
+                                    <h3 class="text-2xl font-bold text-foreground dark:text-white mb-2">{{ $squad->name }}</h3>
+                                    <p class="text-muted-foreground dark:text-white">Leader : {{ $squad->leader->name }}</p>
                                 </div>
                                 <div class="text-right flex flex-col items-end gap-5">
-                                    <form action="{{ route('squads.leave', $squad) }}" method="post">
-                                        @csrf
-                                        <button>
-                                            <svg onclick="confirm('Apakah kamu yakin ingin keluar dari Squad ini?, jika kamu Leader, kamu akan mengeluarkan semua member dari Squad ini.');" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 opacity-50 hover:opacity-100 transition-all cursor-pointer">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9" />
-                                            </svg>
-                                        </button>
-                                    </form>
+                                  <form action="{{ route('squads.leave', $squad) }}" method="post">
+                                  @csrf
+                                  <button>
+                                     <svg onclick="confirm('Apakah kamu yakin ingin keluar dari Squad ini?, jika kamu Leader, kamu akan mengeluarkan semua member dari Squad ini.');" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 opacity-50 hover:opacity-100 transition-all cursor-pointer dark:text-white">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9" />
+                                     </svg>
+                                   </button>
+                                  </form>
                                     <div class="text-right">
-                                        <p class="text-sm text-muted-foreground mb-1">Dibuat pada</p>
-                                        <p class="text-sm font-medium">22/11/2025</p>
+                                        <p class="text-sm text-muted-foreground mb-1 dark:text-white">Dibuat pada</p>
+                                        <p class="text-sm font-medium dark:text-white">{{ $squad->created_at->format('d/m/y') }}</p>
                                     </div>
                                 </div>
                             </div>
                             
-                            <div class="flex justify-between mb-3">
+                            <div class="flex justify-between mb-3 dark:text-white">
                                 <div class="flex gap-5 items-center">
                                     <div>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -109,7 +115,7 @@
                                         </svg>
                                     </div>
                                     <div>
-                                        <div class="flex gap-5">
+                                        <div class="flex gap-5 dark:text-white">
                                             <div>
                                                 {{ $squad->company_name ? $squad->company_name : 'Tidak ada perusahaan' }}
                                             </div>
@@ -132,7 +138,7 @@
                                 </button>
                                 @endif
                             </div>
-                            <div class="bg-card rounded-xl p-6 border border-border">
+                            <div class="bg-card rounded-xl p-6 border border-border dark:text-white">
                                 <h4 class="font-semibold mb-4 flex items-center gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users w-5 h-5 text-primary" aria-hidden="true">
                                         <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
@@ -169,7 +175,7 @@
         @endif
         @if (!$squad)
         <div>
-            <h3 class="text-xl font-semibold mb-4 flex items-center gap-2">
+            <h3 class="text-xl font-semibold mb-4 flex items-center gap-2 dark:text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-plus w-5 h-5 text-primary" aria-hidden="true">
                     <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
                     <circle cx="9" cy="7" r="4"></circle>
@@ -181,11 +187,11 @@
             <div class="space-y-3">
                 @foreach ($student->invites as $invite)
                 <div class="rounded-xl text-card-foreground shadow p-5 card-shadow-hover border-0 bg-card">
-                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 dark">
                         @if ($invite->squad)
                         <div class="flex-1">
                             <h4 class="font-semibold text-lg mb-1">{{ $invite->squad->name }}</h4>
-                            <div class="flex items-center gap-4 text-sm text-muted-foreground">
+                            <div class="flex items-center gap-4 text-sm text-muted-foreground dark:text-white">
                                 <span>Leader: {{ $invite->squad->leader->name }}</span>
                                 <span>•</span>
                                 <span>{{ count($invite->squad->users) }} anggota</span>
@@ -244,7 +250,7 @@
             </div>
         </div>
         @else
-                    <div class="rounded-xl text-card-foreground shadow p-6 border-0 bg-primary/5 border-l-4 border-l-primary">
+                    <div class="rounded-xl text-card-foreground shadow p-6 border-0 bg-primary/5 border-l-4 border-l-primary dark:text-white">
                         <div class="flex gap-3">
                             <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check w-5 h-5 text-primary" aria-hidden="true">
@@ -253,7 +259,7 @@
                                 </svg>
                             </div>
                             <div>
-                                <h4 class="font-semibold mb-1">Status Squad Aktif</h4>
+                                <h4 class="font-semibold mb-1 dark:text-white">Status Squad Aktif</h4>
                                 <p class="text-sm text-muted-foreground">Kamu sudah tergabung dalam squad. Fitur buat squad dan terima undangan tidak tersedia.</p>
                             </div>
                         </div>
@@ -262,40 +268,40 @@
     </main>
     @if ($squad)
     <div id="modalEditCompany1" data-state="closed" class="hidden fixed inset-0 z-20 bg-black/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" data-aria-hidden="true" aria-hidden="true" style="pointer-events: auto;"></div>
-    <div id="modalEditCompany2" class="hidden fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-white p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg sm:max-w-md" style="pointer-events: auto;">
-        
-        <div class="flex flex-col space-y-1.5 text-center sm:text-left">
-            <h2 id="radix-_r_g_" class="text-lg font-semibold leading-none tracking-tight">Edit Squad Perusahaan</h2>
-            <p id="radix-_r_h_" class="text-sm text-muted-foreground">Masukkan informasi Perusahaan PKL yang kamu dan temanmu ingin datangi.</p>
-        </div>
-        <form action="{{ route('squads.update', $squad) }}" method="post"> 
-            @method('PUT')
-            @csrf
-            <div class="space-y-4 py-4">
-                <div class="space-y-2">
-                    <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="squadName">Nama Perusahaan</label>
-                    <input name="company_name" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-ring" id="squadName" placeholder="Contoh: Mataer Digital" value="{{ $squad->company_name }}" required>
-                </div>
-                <div class="space-y-2">
-                    <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="squadName">Alamat Perusahaan</label>
-                    <textarea name="company_address" rows="3" class="flex w-full rounded-md border border-input bg-transparent px-3 py-2 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-ring" id="squadName" placeholder="Masukkan Alamat">{{ $squad->company_address }}</textarea>
-                </div>
-            </div>
-            
-            <div class="flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2">
-                <button type="button" id="closeModalEditCompany1" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input shadow-sm hover:bg-red-500 hover:text-white cursor-pointer h-9 px-4 py-2">Batal</button>
-                <button type="submit" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary-foreground shadow hover:bg-blue-500 hover:text-white cursor-pointer h-9 px-4 py-2 bg-gradient-primary">Simpan</button>
-            </div>
-            
-            <button id="closeModalEditCompany2" type="button" class="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x h-4 w-4" aria-hidden="true">
-                    <path d="M18 6 6 18"></path>
-                    <path d="m6 6 12 12"></path>
-                </svg>
-                <span class="sr-only">Close</span>
-            </button>
-        </form>
+    <div id="modalEditCompany2" class="hidden fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-white dark:bg-gray-800 p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg sm:max-w-md" style="pointer-events: auto;">
+    
+    <div class="flex flex-col space-y-1.5 text-center sm:text-left">
+        <h2 id="radix-_r_g_" class="text-lg font-semibold leading-none tracking-tight dark:text-white">Edit Squad Perusahaan</h2>
+        <p id="radix-_r_h_" class="text-sm text-muted-foreground dark:text-gray-300">Masukkan informasi Perusahaan PKL yang kamu dan temanmu ingin datangi.</p>
     </div>
+    <form action="{{ route('squads.update', $squad) }}" method="post"> 
+        @method('PUT')
+        @csrf
+        <div class="space-y-4 py-4">
+            <div class="space-y-2">
+                <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:text-white" for="squadName">Nama Perusahaan</label>
+                <input name="company_name" class="flex h-9 w-full rounded-md border border-input bg-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground dark:placeholder-gray-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-ring" id="squadName" placeholder="Contoh: Mataer Digital" value="{{ $squad->company_name }}" required>
+            </div>
+            <div class="space-y-2">
+                <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:text-white" for="squadName">Alamat Perusahaan</label>
+                <textarea name="company_address" rows="3" class="flex w-full rounded-md border border-input bg-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white px-3 py-2 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground dark:placeholder-gray-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-ring" id="squadName" placeholder="Masukkan Alamat">{{ $squad->company_address }}</textarea>
+            </div>
+        </div>
+        
+        <div class="flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2">
+            <button type="button" id="closeModalEditCompany1" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input shadow-sm hover:bg-red-500 hover:text-white cursor-pointer h-9 px-4 py-2 dark:text-white dark:border-gray-600">Batal</button>
+            <button type="submit" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary-foreground shadow hover:bg-blue-500 hover:text-white cursor-pointer h-9 px-4 py-2 bg-gradient-primary dark:text-white">Simpan</button>
+        </div>
+        
+        <button id="closeModalEditCompany2" type="button" class="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground dark:text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x h-4 w-4" aria-hidden="true">
+                <path d="M18 6 6 18"></path>
+                <path d="m6 6 12 12"></path>
+            </svg>
+            <span class="sr-only">Close</span>
+        </button>
+    </form>
+</div>
     <script>
         const modalEditCompany1 = document.getElementById('modalEditCompany1');
         const modalEditCompany2 = document.getElementById('modalEditCompany2');
@@ -319,19 +325,19 @@
     </script>
 
     <div id="modalEditStatus1" data-state="closed" class="hidden fixed inset-0 z-20 bg-black/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" data-aria-hidden="true" aria-hidden="true" style="pointer-events: auto;"></div>
-    <div id="modalEditStatus2" class="hidden fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-white p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg sm:max-w-md" style="pointer-events: auto;">
+    <div id="modalEditStatus2" class="hidden fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-white dark:bg-gray-800 p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg sm:max-w-md" style="pointer-events: auto;">
         
         <div class="flex flex-col space-y-1.5 text-center sm:text-left">
-            <h2 id="radix-_r_g_" class="text-lg font-semibold leading-none tracking-tight">Edit Status</h2>
-            <p id="radix-_r_h_" class="text-sm text-muted-foreground">Beri tahu guru bagaimana progress penerimaan PKL kalian.</p>
+            <h2 id="radix-_r_g_" class="text-lg font-semibold leading-none tracking-tight dark:text-white">Edit Status</h2>
+            <p id="radix-_r_h_" class="text-sm text-muted-foreground dark:text-gray-300">Beri tahu guru bagaimana progress penerimaan PKL kalian.</p>
         </div>
         <form action="{{ route('squads.update', $squad) }}" method="post"> 
             @method('PUT')
             @csrf
             <div class="space-y-4 py-4">
                 <div class="space-y-2">
-                    <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="squadName">Status</label>
-                    <select name="status" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-ring" id="squadName" placeholder="Contoh: Mataer Digital" required>
+                    <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:text-white" for="squadName">Status</label>
+                    <select name="status" class="flex h-9 w-full rounded-md border border-input bg-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-ring" id="squadName" placeholder="Contoh: Mataer Digital" required>
                         <option value="pengajuan" @if ($squad->status == 'pengajuan')
                             selected
                         @endif>Pengajuan</option>
@@ -346,11 +352,11 @@
             </div>
             
             <div class="flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2">
-                <button type="button" id="closeModalEditStatus1" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input shadow-sm hover:bg-red-500 hover:text-white cursor-pointer h-9 px-4 py-2">Batal</button>
-                <button type="submit" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary-foreground shadow hover:bg-blue-500 hover:text-white cursor-pointer h-9 px-4 py-2 bg-gradient-primary">Simpan</button>
+                <button type="button" id="closeModalEditStatus1" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input shadow-sm hover:bg-red-500 hover:text-white cursor-pointer h-9 px-4 py-2 dark:text-white dark:border-gray-600">Batal</button>
+                <button type="submit" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary-foreground shadow hover:bg-blue-500 hover:text-white cursor-pointer h-9 px-4 py-2 bg-gradient-primary dark:text-white">Simpan</button>
             </div>
             
-            <button id="closeModalEditStatus2" type="button" class="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+            <button id="closeModalEditStatus2" type="button" class="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground dark:text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x h-4 w-4" aria-hidden="true">
                     <path d="M18 6 6 18"></path>
                     <path d="m6 6 12 12"></path>
@@ -383,28 +389,27 @@
     @endif
         
     <div id="modal2" data-state="closed" class="hidden fixed inset-0 z-20 bg-black/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" data-aria-hidden="true" aria-hidden="true" style="pointer-events: auto;"></div>
-    <div id="modal1" class="hidden fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-white p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg sm:max-w-md" style="pointer-events: auto;">
+       <div id="modal1" class="hidden fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-white dark:bg-gray-800 p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg sm:max-w-md" style="pointer-events: auto;">
         
         <div class="flex flex-col space-y-1.5 text-center sm:text-left">
-            <h2 id="radix-_r_g_" class="text-lg font-semibold leading-none tracking-tight">Buat Squad Baru</h2>
-            <p id="radix-_r_h_" class="text-sm text-muted-foreground">Masukkan nama squad PKL yang ingin kamu buat. Kamu akan menjadi leader dari squad ini.</p>
+            <h2 id="radix-_r_g_" class="text-lg font-semibold leading-none tracking-tight dark:text-white">Buat Squad Baru</h2>
+            <p id="radix-_r_h_" class="text-sm text-muted-foreground dark:text-gray-300">Masukkan nama squad PKL yang ingin kamu buat. Kamu akan menjadi leader dari squad ini.</p>
         </div>
         <form action="{{ route('squads.store') }}" method="post"> 
             @csrf
             <div class="space-y-4 py-4">
-                <div class="space-y-2">
-                    <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="squadName">Nama Squad</label>
-                    <input name="name" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-ring" id="squadName" placeholder="Contoh: Web Dev Squad" value="" required>
+               <div class="space-y-2">
+                  <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:text-white" for="squadName">Nama Squad</label>
+                  <input name="name" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground dark:text-white dark:placeholder-gray-400 dark:border-gray-600 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-ring" id="squadName" placeholder="Contoh: Web Dev Squad" value="" required>
+               </div>
+               <div class="space-y-2">
+                  <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:text-white" for="squadName">Deskripsi</label>
+                  <input name="description" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground dark:text-white dark:placeholder-gray-400 dark:border-gray-600 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-ring" id="squadName" placeholder="Ini Opsional" value="">
                 </div>
-                <div class="space-y-2">
-                    <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="squadName">Deskripsi</label>
-                    <input name="description" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-ring" id="squadName" placeholder="Ini Opsional" value="">
-                </div>
-            </div>
             
             <div class="flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2">
-                <button id="closeModalCreateSquad1" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input shadow-sm hover:bg-red-500 hover:text-white cursor-pointer h-9 px-4 py-2">Batal</button>
-                <button type="submit" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary-foreground shadow hover:bg-blue-500 hover:text-white cursor-pointer h-9 px-4 py-2 bg-gradient-primary">Buat Squad</button>
+                <button id="closeModalCreateSquad1" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input shadow-sm hover:bg-red-500 hover:text-white cursor-pointer h-9 px-4 py-2 dark:text-white">Batal</button>
+                <button type="submit" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary-foreground shadow hover:bg-blue-500 hover:text-white cursor-pointer h-9 px-4 py-2 bg-gradient-primary dark:text-white">Buat Squad</button>
             </div>
             
             <button id="closeModalCreateSquad2" type="button" class="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">

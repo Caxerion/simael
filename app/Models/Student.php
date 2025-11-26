@@ -25,4 +25,9 @@ class Student extends Model
     {
         return $this->hasMany(Squad::class);
     }
+
+    public function invites()
+    {
+        return $this->hasMany(InviteSquad::class);
+    }
 }
