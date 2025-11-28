@@ -19,7 +19,7 @@ class InviteSquadController extends Controller
 
     public function join(InviteSquad $invite)
     {
-        $student = Student::find(session('student_id'));
+        $student = Auth::guard('student_id')->user();
 
         $student->update([
             'squad_id' => $invite['squad_id']
